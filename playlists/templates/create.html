@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html class="has-background-dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-1">
+                </div>
+                <div class="column is-2">
+                    <div class="field">
+                        <a href="/home"><img width="180rem" height="200rem"
+                                src="https://i.imgur.com/C11IjPY.png?2" /></a>
+                    </div>
+                    <div class="field">
+                        <a href="/home"
+                            class="subtitle is-5 has-text-weight-bold  has-text-white">Home</a>
+                    </div>
+                    <div class="field">
+                        <a href="/logout" class="subtitle is-5 has-text-weight-bold  has-text-white">Log Out</a>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="tile is-ancestor">
+                        <div class="tile is-parent ">
+                            <article class="tile is-child notification is-light">
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">Playlist Name</label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field">
+                                                <div class="control">
+                                                    <input name="title" value="{{title}}" class="input" type="text"
+                                                        placeholder="e.g. Daily Run">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field is-horizontal">
+                                        <div class="field-label is-normal">
+                                            <label class="label">Music Genre</label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field is-narrow">
+                                                <div class="control">
+                                                    <div class="select is-fullwidth">
+                                                        <select name="genre">
+                                                            {% for g in genre_types %}
+                                                            {% if g == genre %}
+                                                            <option selected>{{g}}</option>
+                                                            {% else %}
+                                                            <option>{{g}}</option>
+                                                            {% endif %}
+                                                            {% endfor %}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="field is-horizontal">
+                                        <div class="field-label">
+                                            <label class="label">Length</label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field is-expanded">
+                                                <div class="field has-addons">
+                                                    <div class="control">
+                                                        <div class="select is-fullwidth">
+                                                            <select name="hours_length_chosen">
+                                                                {% for i in hours_length %}
+                                                                {% if i == hours_length_chosen %}
+                                                                <option selected>{{i}}&nbsp</option>
+                                                                {% else %}
+                                                                <option>{{i}}&nbsp</option>
+                                                                {% endif %}
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <p class="control">
+                                                        <a class="button is-static">
+                                                            :
+                                                        </a>
+                                                    </p>
+                                                    <div class="control">
+                                                        <div class="select is-fullwidth">
+                                                            <select name="mins_length_chosen">
+                                                                {% for i in mins_length %}
+                                                                {% if i == mins_length_chosen %}
+                                                                <option selected>{{i}}</option>
+                                                                {% else %}
+                                                                <option>{{i}}</option>
+                                                                {% endif %}
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <p class="control">
+                                                        <a class="button is-static">
+                                                            Hour : Min
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="field is-horizontal">
+                                        <div class="field-label">
+                                            <label class="label">Pace</label>
+                                        </div>
+                                        <div class="field-body">
+                                            <div class="field is-expanded">
+                                                <div class="field has-addons">
+                                                    <div class="control">
+                                                        <div class="select is-fullwidth">
+                                                            <select name="mins_pace_chosen">
+                                                                {% for i in mins_pace %}
+                                                                {% if i == mins_pace_chosen %}
+                                                                <option selected>{{i}}</option>
+                                                                {% else %}
+                                                                <option>{{i}}</option>
+                                                                {% endif %}
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <p class="control">
+                                                        <a class="button is-static">
+                                                            :
+                                                        </a>
+                                                    </p>
+                                                    <div class="control">
+                                                        <div class="select is-fullwidth">
+                                                            <select name="secs_pace_chosen">
+                                                                {% for i in secs_pace %}
+                                                                {% if i == secs_pace_chosen %}
+                                                                <option selected>{{i}}</option>
+                                                                {% else %}
+                                                                <option>{{i}}</option>
+                                                                {% endif %}
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <p class="control">
+                                                        <a class="button is-static">
+                                                            Min : Sec
+                                                        </a>
+                                                    </p>
+                                                </div>
+
+                                                <div class="field has-addons">
+                                                    <div class="control">
+                                                        <div class="control">
+                                                            <div class="select is-fullwidth">
+                                                                <select name="pace_unit_chosen">
+                                                                    {% if pace_unit_chosen == 'm' %}
+                                                                    <option selected>per Mile</option>
+                                                                    <option>per Kilometer</option>
+                                                                    {% else %}
+                                                                    <option>per Mile</option>
+                                                                    <option selected>per Kilometer</option>
+                                                                    {% endif %}
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    {% if technique == 0 %}
+                                    <div class="field has-text-centered">
+                                        <label class="label">How should Runnify calculate your stride
+                                            length?</label>
+                                    </div>
+
+                                    <div class="field is-grouped is-grouped-centered">
+                                        <div class="control">
+                                            <p class="control">
+                                                <button name='1' class="button is-success" type="submit">Enter
+                                                    Stride
+                                                    Length</button>
+                                            </p>
+                                        </div>
+                                        <div class="control">
+                                            <p class="control">
+                                                <button name='2' class="button is-success" type="submit">Estimate
+                                                    with
+                                                    Height</button>
+                                            </p>
+                                        </div>
+                                        <div class="control">
+                                            <p class="control">
+                                                <button name='3' class="button is-success" type="submit">Define
+                                                    Tempo</button>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </form>
+                                {% elif technique == 1 %}
+                                <div class="field is-horizontal">
+                                    <div class="field-label is-normal">
+                                        <label class="label">Stride Length</label>
+                                    </div>
+                                    <div class="field-body">
+                                        <div class="field is-expanded">
+                                            <div class="field has-addons">
+                                                <p class="control">
+                                                    <input name="stride_length" class="input" type="text"
+                                                        placeholder="70.0">
+                                                </p>
+                                                <p class="control">
+                                                    <div class="select">
+                                                        <select name="stride_length_units">
+                                                            <option>inches</option>
+                                                            <option>feet</option>
+                                                            <option>centimeters</option>
+                                                            <option>meters</option>
+                                                        </select>
+                                                    </div>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="has-text-danger">{{error}}</p>
+                                <div class="field is-horizontal">
+                                    <div class="field-label">
+                                    </div>
+                                    <div class="field-body">
+                                        <div class="field">
+                                            <div class="control">
+                                                <button type="submit" name="final" class="button is-success">
+                                                    Create Playlist
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {% elif technique == 2 %}
+                                <div class="field is-horizontal">
+                                    <div class="field-label is-normal">
+                                        <label class="label">Gender</label>
+                                    </div>
+                                    <div class="field-body">
+                                        <div class="field-body">
+                                            <div class="control">
+                                                <div class="select is-fullwidth">
+                                                    <select name="gender_chosen">
+                                                        <option selected>Male</option>
+                                                        <option>Female</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field is-horizontal">
+                                    <div class="field-label is-normal">
+                                        <label class="label">Height</label>
+                                    </div>
+                                    <div class="field-body">
+                                        <div class="field is-expanded">
+                                            <div class="field has-addons">
+                                                <p class="control">
+                                                    <input name="height" class="input" type="text" placeholder="72.5">
+                                                </p>
+                                                <p class="control">
+                                                    <div class="select">
+                                                        <select name="height_units">
+                                                            <option>inches</option>
+                                                            <option>centimeters</option>
+                                                            <option>meters</option>
+                                                        </select>
+                                                    </div>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="has-text-danger">{{error}}</p>
+                                <div class="field is-horizontal">
+                                    <div class="field-label">
+
+                                    </div>
+                                    <div class="field-body">
+                                        <div class="field">
+                                            <div class="control">
+                                                <button type="submit" name="final" class="button is-success">
+                                                    Create Playlist
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {% elif technique == 3 %}
+                                <div class="field is-horizontal">
+                                    <div class="field-label is-normal">
+                                        <label class="label">Tempo</label>
+                                    </div>
+                                    <div class="field-body">
+                                        <div class="field is-expanded">
+                                            <div class="field has-addons">
+                                                <p class="control">
+                                                    <input class="input" name="tempo" type="text" placeholder="130">
+                                                </p>
+                                                <p class="control">
+                                                    <a class="button is-static">
+                                                        BPM
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="has-text-danger">{{error}}</p>
+                                <div class="field is-horizontal">
+                                    <div class="field-label">
+                                    </div>
+                                    <div class="field-body">
+                                        <div class="field">
+                                            <div class="control">
+                                                <button type="submit" name="final" class="button is-success">
+                                                    Create Playlist
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {% endif %}
+                                </form>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-1">
+                </div>
+                <div class="column is-2">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

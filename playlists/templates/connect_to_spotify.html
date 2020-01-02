@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html class="has-background-dark">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log In</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-6 has-text-centered">
+                    <a href="/"><img width="350rem" height="350rem" src="https://i.imgur.com/q8xaacX.png?2" /></a>
+                    <hr>
+                    <section class="hero is-light is-bold">
+                        <div class="hero-body">
+                            <div class="container">
+                                <h1 class="title is-1">
+                                    Connect to Spotify
+                                </h1>
+                                <br />
+                                <h1 class="title is-4">
+                                    Step One
+                                </h1>
+                                <p class="subtitle">Ensure your Runnify and Spotify username match. See <a
+                                        class="has-text-success"
+                                        href="https://community.spotify.com/t5/Accounts/how-do-i-find-my-spotify-user-id/m-p/1465265/highlight/true#M229725">here</a>
+                                    if you have troubles finding your Spotify username
+                                </p>
+                                <br />
+                                <h1 class="title is-4">
+                                    Step Two
+                                </h1>
+                                <p class="subtitle">Click below to sign into Spotify
+                                </p>
+                                <form method="POST" action="spotifyconnect">
+                                    {% csrf_token %}
+                                    <div class="field is-grouped is-grouped-centered">
+                                    <p class="control">
+                                        <button class="button is-success is-rounded" type="submit">
+                                            <span class="icon">
+                                                <i class="fab fa-spotify" aria-hidden="true"></i>
+                                            </span>
+                                            <span>
+                                                Spotify Login
+                                            </span>
+                                        </button>
+                                    </p>
+                                </div>
+                                </form>
+                                <br/>
+                                <p class="subtitle">After logging in, allow Runnify to have access to your public data
+                                    and to create private playlists
+                                </p>
+                                <img width="300rem" height="300rem" src="https://i.imgur.com/NAYV02G.jpg" />
+                                <br />
+                                <br />
+                                <br />
+                                <h1 class="title is-4">
+                                    Step Three
+                                </h1>
+                                <p class="subtitle">Send a Runnify Playlist to Spotify by selecting a playlist and clicking on "Send to Spotify"
+                                </p>
+                                <img width="250rem" height="250rem" src="https://i.imgur.com/z4axqTi.jpg" />
+                                <br/>
+                                <br/>
+                                <p class="subtitle">For your first playlist, Spotify will redirect you to Runnify's home
+                                    screen. Copy the redirect url and paste it into the command line.
+                                <img width="350rem" height="350rem" src="https://i.imgur.com/CJy5nP1.jpg" />
+                                <br/>
+                                <br/>
+                                <img width="350rem" height="350rem" src="https://i.imgur.com/2mGSK0C.jpg?1" />
+                                <br/>
+                                <br/>
+                                <p class="subtitle">That's it! Your Runnify account is now connected with Spotify.
+                                </p>
+                                <p class="subtitle"><a class="has-text-success" href="/home">Take me to Runnify</a></p>
+                                
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

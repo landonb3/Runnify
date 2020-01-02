@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html class="has-background-dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-5 has-text-centered">
+                    <a href="/"><img width="350rem" height="350rem" src="https://i.imgur.com/rXj8Mgn.png?2" /></a>
+                    <hr>
+                    <form method="POST" action="signup">
+                        {% csrf_token %}
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input name="username" class="input" placeholder="Spotify Username">
+                                <span class="icon is-small is-left">
+                                    <i class="fab fa-spotify"></i>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control has-icons-left has-icons-right">
+                                <input name="email" type="email" class="input" placeholder="Email">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <span class="icon is-small is-right">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input name="password" class="input" type="password" placeholder="Runnify Password">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                        </div>
+                        <div class="field">
+                            <p class="has-text-danger">{{error}} </p>
+                        </div>
+                        <div class="field is-grouped is-grouped-centered">
+                            <p class="control">
+                                <button class="button is-success" type="submit">Sign Up</button>
+                            </p>
+                        </div>
+                        <p class="has-text-white">Already have an account? <a class="has-text-success" href="/login">Log
+                                In</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

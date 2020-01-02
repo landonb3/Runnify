@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html class="has-background-dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-1">
+                </div>
+                <div class="column is-2">
+                    <div class="field">
+                        <a href="/home"><img width="180rem" height="200rem"
+                                src="https://i.imgur.com/C11IjPY.png?2" /></a>
+                    </div>
+                    <div class="field">
+                        <a class="button is-success is-rounded" href="/create/new">
+                            <span class="icon">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </span>
+                            <span>
+                                New Playlist
+                            </span>
+                        </a>
+                    </div>
+                    <div class="field">
+                        <a href="/logout" class="subtitle is-5 has-text-weight-bold  has-text-white">Log Out</a>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="tile is-ancestor">
+                        <div class="tile is-parent has-text-centered">
+                            <article class="tile is-child notification is-success">
+                                <a href="/create/new" style="text-decoration:none">
+                                    <p style="text-decoration: none;" class="title is-3">Create Playlist</p>
+                                    <img width="70rem" height="70rem" src="https://i.imgur.com/2OLXVsi.png" />
+                                </a>
+                            </article>
+                        </div>
+
+                        {% for p in playlists %}
+                        {% if  forloop.counter <= 2 %}
+                        <div class="tile is-parent">
+                            <div class="tile is-child box">
+                                <a href="/playlist/{{p.id}}">
+                                    <p class="title is-4">{{p.title}}</p>
+                                    <p class="subtitle">Genre: {{p.genre}}</p>
+                                    <p class="subtitle">Tempo: {{p.tempo}}</p>
+                                    <p class="subtitle">{{p.created_at}}</p>
+                                    <p class="is-pulled-right has-text-danger is-size-7"><a href="/delete?id={{p.id}}"
+                                            class="delete"></a></p>
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        {% if  num_playlists == 0 %}
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification is-dark">
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                                <article class="tile is-child notification is-dark">
+                                </article>
+                        </div>
+                        {% elif  num_playlists == 1 %}
+                        <div class="tile is-parent">
+                                <article class="tile is-child notification is-dark">
+                                </article>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="tile is-ancestor">
+                        {% for p in playlists %}
+                        {% if  forloop.counter > 2 and forloop.counter <= 5 %}
+                        <div class="tile is-parent">
+                            <div class="tile is-child box">
+                                <a href="/playlist/{{p.id}}">
+                                    <p class="title is-4">{{p.title}}</p>
+                                    <p class="subtitle">Genre: {{p.genre}}</p>
+                                    <p class="subtitle">Tempo: {{p.tempo}}</p>
+                                    <p class="subtitle">{{p.created_at}}</p>
+                                    <p class="is-pulled-right has-text-danger is-size-7"><a href="/delete?id={{p.id}}"
+                                            class="delete"></a></p>
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        {% if  num_playlists == 3 %}
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification is-dark">
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                                <article class="tile is-child notification is-dark">
+                                </article>
+                        </div>
+                        {% elif  num_playlists == 4 %}
+                        <div class="tile is-parent">
+                                <article class="tile is-child notification is-dark">
+                                </article>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="tile is-ancestor">
+                        {% for p in playlists %}
+                        {% if  forloop.counter > 5 and forloop.counter <= 8 %}
+                        <div class="tile is-parent">
+                            <div class="tile is-child box">
+                                <a href="/playlist/{{p.id}}">
+                                    <p class="title is-4">{{p.title}}</p>
+                                    <p class="subtitle">Genre: {{p.genre}}</p>
+                                    <p class="subtitle">Tempo: {{p.tempo}}</p>
+                                    <p class="subtitle">{{p.created_at}}</p>
+                                    <p class="is-pulled-right has-text-danger is-size-7"><a href="/delete?id={{p.id}}"
+                                            class="delete"></a></p>
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        {% if  num_playlists == 6 %}
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification is-dark">
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                                <article class="tile is-child notification is-dark">
+                                </article>
+                        </div>
+                        {% elif  num_playlists == 7 %}
+                        <div class="tile is-parent">
+                                <article class="tile is-child notification is-dark">
+                                </article>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="tile is-ancestor">
+                        {% for p in playlists %}
+                        {% if  forloop.counter > 8 and forloop.counter <= 11 %}
+                        <div class="tile is-parent">
+                            <div class="tile is-child box">
+                                <a href="/playlist/{{p.id}}">
+                                    <p class="title is-4">{{p.title}}</p>
+                                    <p class="subtitle">Genre: {{p.genre}}</p>
+                                    <p class="subtitle">Tempo: {{p.tempo}}</p>
+                                    <p class="subtitle">{{p.created_at}}</p>
+                                    <p class="is-pulled-right has-text-danger is-size-7"><a href="/delete?id={{p.id}}"
+                                            class="delete"></a></p>
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        {% if  num_playlists == 9 %}
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification is-dark">
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                                <article class="tile is-child notification is-dark">
+                                </article>
+                        </div>
+                        {% elif  num_playlists == 10 %}
+                        <div class="tile is-parent">
+                                <article class="tile is-child notification is-dark">
+                                </article>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="tile is-ancestor">
+                        {% for p in playlists %}
+                        {% if  forloop.counter > 11 and forloop.counter <= 14 %}
+                        <div class="tile is-parent">
+                            <div class="tile is-child box">
+                                <a href="/playlist/{{p.id}}">
+                                    <p class="title is-4">{{p.title}}</p>
+                                    <p class="subtitle">Genre: {{p.genre}}</p>
+                                    <p class="subtitle">Tempo: {{p.tempo}}</p>
+                                    <p class="subtitle">{{p.created_at}}</p>
+                                    <p class="is-pulled-right has-text-danger is-size-7"><a href="/delete?id={{p.id}}"
+                                            class="delete"></a></p>
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        {% if  num_playlists == 12 %}
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification is-dark">
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                                <article class="tile is-child notification is-dark">
+                                </article>
+                        </div>
+                        {% elif  num_playlists == 13 %}
+                        <div class="tile is-parent">
+                                <article class="tile is-child notification is-dark">
+                                </article>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="tile is-ancestor">
+                        {% for p in playlists %}
+                        {% if  forloop.counter > 14 and forloop.counter <= 17 %}
+                        <div class="tile is-parent">
+                            <div class="tile is-child box">
+                                <a href="/playlist/{{p.id}}">
+                                    <p class="title is-4">{{p.title}}</p>
+                                    <p class="subtitle">Genre: {{p.genre}}</p>
+                                    <p class="subtitle">Tempo: {{p.tempo}}</p>
+                                    <p class="subtitle">{{p.created_at}}</p>
+                                    <p class="is-pulled-right has-text-danger is-size-7"><a href="/delete?id={{p.id}}"
+                                            class="delete"></a></p>
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        {% if  num_playlists == 15 %}
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification is-dark">
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                                <article class="tile is-child notification is-dark">
+                                </article>
+                        </div>
+                        {% elif  num_playlists == 16 %}
+                        <div class="tile is-parent">
+                                <article class="tile is-child notification is-dark">
+                                </article>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="column is-1">
+                </div>
+                <div class="column is-2">
+                    <div class="box">
+                        <div class="field has-text-centered">
+                            <p class="subtitle is-5">Playlists</p>
+                            <p class="title is-2">{{num_playlists}}</p>
+                        </div>
+                        <div class="field has-text-centered">
+                            <p class="subtitle is-5">Average Tempo</p>
+                            <p class="title is-2">{{aver_tempo}}</p>
+                        </div>
+                        <div class="field has-text-centered">
+                            <p class="subtitle is-5">Favorite Genre</p>
+                            <p class="title is-3">{{genre}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
